@@ -1,11 +1,20 @@
-venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.log
+*.sqlite3
 db.sqlite3
+
+# Virtual environment
+venv/
 .env
-# Ignore migrations
+
+# Django
 migrations/
-# Ignore static files
-static/
-# Ignore media files
 media/
+
+# Static files (optional — remove if you want to track custom static files)
+static/
+
+# VS Code
+.vscode/
