@@ -13,7 +13,6 @@ venv/
 migrations/
 media/
 
-# Static files (optional — remove if you want to track custom static files)
 static/
 
 # VS Code

@@ -2,10 +2,9 @@
 {% load static %}
 
 
-{% block title %}Home - Godhuli{% endblock %}
+{% block title %} Godhuli{% endblock %}
 
 {% block content %}     
-{% endblock content %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +53,7 @@
           <div class="col-lg-5" data-aos="zoom-out">
             <div class="visual-content">
               <div class="fluid-shape">
-                <img src="assets/img/abstract/abstract-1.webp" alt="Abstract Fluid Shape" class="fluid-img">
+                <img src="static/assets/img/abstract/abstract-1.webp" alt="Abstract Fluid Shape" class="fluid-img">
               </div>
 
               <div class="stats-card">
@@ -75,7 +74,7 @@
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
-    <section id="about" class="about section">
+    {% comment %} <section id="about" class="about section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -88,7 +87,7 @@
         <div class="row gx-5 align-items-center">
           <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
             <div class="about-image position-relative">
-              <img src="assets/img/about/about-portrait-1.webp" class="img-fluid rounded-4 shadow-sm" alt="About Image" loading="lazy">
+              <img src="static/assets/img/about/about-portrait-1.webp" class="img-fluid rounded-4 shadow-sm" alt="About Image" loading="lazy">
               <div class="experience-badge">
                 <span class="years">20+</span>
                 <span class="text">Years of Expertise</span>
@@ -248,7 +247,7 @@
 
       </div>
 
-    </section><!-- /About Section -->
+    </section><!-- /About Section --> {% endcomment %}
 
     <!-- Services Section -->
     <section id="services" class="services section">
@@ -917,7 +916,7 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member d-flex">
               <div class="member-img">
-                <img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="" loading="lazy">
+                <img src="static/assets/img/person/person-m-7.webp" class="img-fluid" alt="" loading="lazy">
               </div>
               <div class="member-info flex-grow-1">
                 <h4>Walter White</h4>
@@ -936,7 +935,7 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member d-flex">
               <div class="member-img">
-                <img src="assets/img/person/person-f-8.webp" class="img-fluid" alt="" loading="lazy">
+                <img src="static/assets/img/person/person-f-8.webp" class="img-fluid" alt="" loading="lazy">
               </div>
               <div class="member-info flex-grow-1">
                 <h4>Sarah Jhonson</h4>
@@ -955,7 +954,7 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex">
               <div class="member-img">
-                <img src="assets/img/person/person-m-6.webp" class="img-fluid" alt="" loading="lazy">
+                <img src="static/assets/img/person/person-m-6.webp" class="img-fluid" alt="" loading="lazy">
               </div>
               <div class="member-info flex-grow-1">
                 <h4>William Anderson</h4>
@@ -974,7 +973,7 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member d-flex">
               <div class="member-img">
-                <img src="assets/img/person/person-f-4.webp" class="img-fluid" alt="" loading="lazy">
+                <img src="static/assets/img/person/person-f-4.webp" class="img-fluid" alt="" loading="lazy">
               </div>
               <div class="member-info flex-grow-1">
                 <h4>Amanda Jepson</h4>
@@ -993,7 +992,7 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
             <div class="team-member d-flex">
               <div class="member-img">
-                <img src="assets/img/person/person-m-12.webp" class="img-fluid" alt="" loading="lazy">
+                <img src="static/assets/img/person/person-m-12.webp" class="img-fluid" alt="" loading="lazy">
               </div>
               <div class="member-info flex-grow-1">
                 <h4>Brian Doe</h4>
@@ -1012,7 +1011,7 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
             <div class="team-member d-flex">
               <div class="member-img">
-                <img src="assets/img/person/person-f-9.webp" class="img-fluid" alt="" loading="lazy">
+                <img src="static/assets/img/person/person-f-9.webp" class="img-fluid" alt="" loading="lazy">
               </div>
               <div class="member-info flex-grow-1">
                 <h4>Josepha Palas</h4>
@@ -1347,7 +1346,7 @@
 
   </main>
 
-  <footer id="footer" class="footer">
+  {% comment %} <footer id="footer" class="footer">
 
     <div class="container footer-top">
       <div class="row gy-4">
@@ -1409,7 +1408,7 @@
       </div>
     </div>
 
-  </footer>
+  </footer> {% endcomment %}
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -1432,3 +1431,4 @@
 </body>
 
 </html>
+{% endblock content %}
