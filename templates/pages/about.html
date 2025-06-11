@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
-  
-    <!-- About Section -->
+<!-- About Section -->
     <section id="about" class="about section">
 
       <!-- Section Title -->
@@ -17,11 +15,11 @@
         <div class="row gx-5 align-items-center">
           <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
             <div class="about-image position-relative">
-              <img src="assets/img/about/about-portrait-1.webp" class="img-fluid rounded-4 shadow-sm" alt="About Image" loading="lazy">
-              <div class="experience-badge">
-                <span class="years">20+</span>
-                <span class="text">Years of Expertise</span>
-              </div>
+                <img src="{% static 'assets/img/about/about-portrait-1.webp' %}" class="img-fluid rounded-4 shadow-sm" alt="About Image" loading="lazy">
+                <div class="experience-badge">
+                  <span class="years">20+</span>
+                  <span class="text">Years of Expertise</span>
+                </div>
             </div>
           </div>
 
@@ -100,11 +98,11 @@
                       </div>
                       <p>"Their strategic vision and unwavering commitment to results provided exceptional value. Our operational efficiency has signficantly improved."</p>
                       <div class="client-info d-flex align-items-center mt-4">
-                        <img src="assets/img/person/person-f-1.webp" class="client-img" alt="Client" loading="lazy">
-                        <div>
-                          <h6 class="mb-0">Eleanor Vance</h6>
-                          <span>Operations Manager</span>
-                        </div>
+                          <img src="{% static 'assets/img/person/person-f-1.webp' %}" class="client-img" alt="Client" loading="lazy">
+                          <div>
+                            <h6 class="mb-0">Eleanor Vance</h6>
+                            <span>Operations Manager</span>
+                          </div>
                       </div>
                     </div>
                   </div>
@@ -120,11 +118,11 @@
                       </div>
                       <p>"Collaborating with their team was a revelation. Their innovative strategies guided us toward achieving our objectives with precision and speed."</p>
                       <div class="client-info d-flex align-items-center mt-4">
-                        <img src="assets/img/person/person-m-1.webp" class="client-img" alt="Client" loading="lazy">
-                        <div>
-                          <h6 class="mb-0">David Kim</h6>
-                          <span>Product Lead</span>
-                        </div>
+                          <img src="{% static 'assets/img/person/person-m-1.webp' %}" class="client-img" alt="Client" loading="lazy">
+                          <div>
+                            <h6 class="mb-0">David Kim</h6>
+                            <span>Product Lead</span>
+                          </div>
                       </div>
                     </div>
                   </div>
@@ -140,7 +138,7 @@
                       </div>
                       <p>"The depth of knowledge and unwavering dedication they bring to every project is exceptional. They've become an essential ally in driving our expansion."</p>
                       <div class="client-info d-flex align-items-center mt-4">
-                        <img src="assets/img/person/person-f-2.webp" class="client-img" alt="Client" loading="lazy">
+                        <img src="{% static 'assets/img/person/person-f-2.webp' %}" class="client-img" alt="Client" loading="lazy">
                         <div>
                           <h6 class="mb-0">Isabella Diaz</h6>
                           <span>Research Analyst</span>
@@ -160,7 +158,7 @@
                       </div>
                       <p>"Their dedication to delivering superior solutions and their meticulous attention to detail have profoundly impacted our corporate growth trajectory."</p>
                       <div class="client-info d-flex align-items-center mt-4">
-                        <img src="assets/img/person/person-f-3.webp" class="client-img" alt="Client" loading="lazy">
+                        <img src="{% static 'assets/img/person/person-f-3.webp' %}" class="client-img" alt="Client" loading="lazy">
                         <div>
                           <h6 class="mb-0">Olivia Chen</h6>
                           <span>Development Strategist</span>
@@ -178,4 +176,4 @@
       </div>
 
     </section><!-- /About Section -->
-{% endblock %}
+{% endblock content %}
