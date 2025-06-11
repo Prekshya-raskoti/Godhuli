@@ -35,17 +35,17 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="{% url 'pages:home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="{% url 'home:home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
         <h1 class="sitename">Godhuli</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{% url 'pages:home' %}" class="active">Home</a></li>
-          <li><a href="{% url 'pages:about' %}">About</a></li>  
-          <li><a href="{% url 'pages:services' %}">Services</a></li>
-          <li><a href="{% url 'pages:portfolio' %}">Portfolio</a></li>
-          <li><a href="{% url 'pages:team' %}">Team</a></li>
+          <li><a href="{% url 'home:home' %}" class="active">Home</a></li>
+          <li><a href="{% url 'about:about' %}">About</a></li>  
+          <li><a href="{% url 'services:services' %}">Services</a></li>
+          <li><a href="{% url 'portfolio:portfolio' %}">Portfolio</a></li>
+          <li><a href="{% url 'team:team' %}">Team</a></li>
           <li class="dropdown">
             <a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -65,12 +65,12 @@
               <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li>
-          <li><a href={% url 'pages:contact' %}>Contact</a></li>
+          <li><a href={% url 'contact:contact' %}>Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href={% url 'pages:about' %}>Get Started</a>
+      <a class="btn-getstarted" href={% url 'about:about' %}>Get Started</a>
     </div>
   </header>
   <!-- End Header -->
@@ -87,7 +87,7 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="{% url 'pages:home' %}" class="logo d-flex align-items-center">
+          <a href="{% url 'home:home' %}" class="logo d-flex align-items-center">
             <span class="sitename">Godhuli IT Soluitons Pvt. Ltd.</span>
           </a>
           <p>
