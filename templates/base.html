@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-{% block title %}
-      <title>GODHULI</title>
-{% endblock title %}
+  {% block title %}
+      <title>{{ site_settings.site_name|default:"GODHULI" }}</title>
+  {% endblock title %}
   {% load static %}
 
   <!-- Favicons -->
-  <link rel="icon" href="{% static 'assets/img/favicon.png' %}" />
+  {% if site_settings.logo %}
+    <link rel="icon" href="{{ site_settings.logo.url }}" />
+  {% else %}
+    <link rel="icon" href="{% static 'assets/img/favicon.png' %}" />
+  {% endif %}
   <link rel="apple-touch-icon" href="{% static 'assets/img/apple-touch-icon.png' %}" />
 
   <!-- Google Fonts -->
@@ -36,7 +40,11 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="{% url 'home:home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
-        <h1 class="sitename">Godhuli</h1>
+        {% if site_settings.logo %}
+          <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.site_name }}" style="max-height: 40px;"/>
+        {% else %}
+          <h1 class="sitename">{{ site_settings.site_name|default:"Godhuli" }}</h1>
+        {% endif %}
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -65,22 +73,21 @@
               <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li>
-          <li><a href={% url 'contact:contact' %}>Contact</a></li>
+          <li><a href="{% url 'contact:contact' %}">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href={% url 'about:about' %}>Get Started</a>
+      <a class="btn-getstarted" href="{{ site_settings.get_started_url|default:'#' }}">{{ site_settings.get_started_text|default:"Get Started" }}</a>
     </div>
   </header>
   <!-- End Header -->
 
   <!-- ======= Main Content ======= -->
-
   <main class="main mt-5 pt-4">
     {% block content %}
     {% endblock content %}
-   </main> 
+  </main> 
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
@@ -88,26 +95,28 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
           <a href="{% url 'home:home' %}" class="logo d-flex align-items-center">
-            <span class="sitename">Godhuli IT Soluitons Pvt. Ltd.</span>
+            {% if site_settings.logo %}
+              <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.site_name }}" style="max-height: 40px;"/>
+            {% else %}
+              <span class="sitename">{{ site_settings.company_name|default:"Godhuli IT Solutions Pvt. Ltd." }}</span>
+            {% endif %}
           </a>
-          <p>
-            Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna
-            derita valies darta donna mare fermentum iaculis eu non diam phasellus.
-          </p>
+          <p>{{ site_settings.about_company|default:"Crass fermentum odio eu feugiat lide par naso tierra..." }}</p>
           <div class="social-links d-flex mt-4">
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
+            {% for link in site_settings.social_links.all %}
+              <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer"><i class="{{ link.icon_class }}"></i></a>
+            {% empty %}
+              <!-- fallback or empty social links -->
+            {% endfor %}
           </div>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="{% url 'home:home' %}">Home</a></li>
+            <li><a href="{% url 'about:about' %}">About us</a></li>
+            <li><a href="{% url 'services:services' %}">Services</a></li>
             <li><a href="#">Terms of service</a></li>
             <li><a href="#">Privacy policy</a></li>
           </ul>
@@ -126,32 +135,30 @@
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
+          <p>{{ site_settings.address_line1 }}</p>
+          <p>{{ site_settings.address_line2 }}</p>
+          <p>{{ site_settings.city }}, {{ site_settings.country }}</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>{{ site_settings.phone }}</span></p>
+          <p><strong>Email:</strong> <span>{{ site_settings.email }}</span></p>
         </div>
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
       <p>
-        &copy; <strong class="sitename">Strategy</strong>. All Rights Reserved
+        &copy; <strong class="sitename">{{ site_settings.footer_notice|default:"All Rights Reserved" }}</strong>
       </p>
       <div class="credits">
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
   </footer>
-   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
-  <!-- End Footer -->
 
   <!-- Vendor JS Files -->
-
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
   <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>

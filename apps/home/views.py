@@ -1,7 +1,10 @@
-from django.shortcuts import render
-from django.views.generic.edit import FormView, CreateView
-from django.urls import reverse_lazy
-from django.contrib import messages
+from django.views.generic import TemplateView
+from apps.home.models import Homepage
 
-def home_view(request):
-    return render(request, 'pages/home.html')
+class HomepageView(TemplateView):
+    template_name = "pages/home.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['homepage'] = Homepage.objects.first()  # assuming only one instance
+        return context
