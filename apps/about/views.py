@@ -1,5 +1,13 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from apps.about.models import AboutSection, Testimonial
 
 def about_view(request):
-    return render(request, 'pages/about.html')
+    about = AboutSection.objects.prefetch_related('features').first()
+    testimonials = Testimonial.objects.all()
+    show_testimonial_loop = testimonials.count() > 2
+
+    return render(request, 'pages/about.html', {
+        'about': about,
+        'testimonials': testimonials,
+        'show_testimonial_loop': show_testimonial_loop,
+    })

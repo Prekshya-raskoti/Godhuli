@@ -1,3 +1,10 @@
-from django.contrib import admin
+# home/admin.py
 
-# Register your models here.
+from django.contrib import admin
+from .models import AboutSection , FeatureItem, Testimonial
+
+admin.site.register(AboutSection)
+
+admin.site.register(FeatureItem)
+
+admin.site.register(Testimonial)
